@@ -47,9 +47,11 @@ int	main(int ac, char **av)
 	else
 		av++;
 	init_stack(&stack_a, av);
-	/*if (!is_sorted(stack_a))
+	if (!is_sorted(stack_a))
 	{
-		
-	}*/
+		sort(stack_a, stack_b);
+	}
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
