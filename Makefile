@@ -8,7 +8,14 @@ FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 LIBFT_DIR = libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-SRC = src/main.c src/stack.c src/erro.c src/verify_stack.c
+SRC = src/main.c \
+	src/stack.c \
+	src/erro.c \
+	src/verify_stack.c \
+	src/sort.c \
+	src/operations.c \
+	src/radix.c \
+	src/utils.c \
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
