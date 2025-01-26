@@ -47,3 +47,17 @@ t_stack	*lstlast(t_stack *lst)
 	return (tmp);
 }
 
+void	lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
+
+void	lstdelone(t_stack *stack)
+{
+	free(stack->content);
+	free(stack);
+}
