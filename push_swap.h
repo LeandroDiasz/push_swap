@@ -33,7 +33,7 @@ typedef struct s_stack
 void	init_stack(t_stack **a, char **av);
 
 /*--- stack.c ---*/
-void	lstadd_front(t_list **lst, t_list *new);
+void	lstadd_front(t_stack **lst, t_stack *new);
 void	lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*lstnew(int content);
 t_stack	*lstlast(t_stack *lst);
@@ -41,26 +41,31 @@ void	lstdelone(t_stack *stack);
 
 /*--- utils.c ---*/
 int		lstsize(t_stack *lst);
+void	node_rotate(t_stack **stack);
+void	node_swap(t_stack **stack);
+void	node_reverse_rotate(t_stack **stack);
+void	assigin_index(t_stack *stack);
 
 /*--- sort.c ---*/
 int		is_sorted(t_stack *stack);
-void	sort(t_stack *stack_a, t_stack *stack_b);
-void	medium_sort(t_stack *stack_a, t_stack *stack_b);
-void	small_sort(t_stack *stack_a, t_stack *stack_b);
+void	sort(t_stack **stack_a, t_stack **stack_b);
+void	medium_sort(t_stack **stack_a, t_stack **stack_b);
+void	sort_three(t_stack **stack_a);
+void	sort_two(t_stack **stack_a);
 
 /*--- radix.c ---*/
-void	radix(t_stack *stack_a, t_stack *stack_b);
+//void	radix(t_stack *stack_a, t_stack *stack_b);
 
 /*--- operations.c ---*/
-void	node_swap(t_stack *stack);
-void	swap(t_stack *stack_a, t_stack *stack_b, char set);
-void	push(t_stack *stack_a, t_stack *stack_b, char set);
-void	rotate(t_stack *stack_a, t_stack *stack_b, char set);
-void	reverse_rotate(t_stack *stack_a, t_stack *stack_b, char set);
+void	swap(t_stack **stack_a, t_stack **stack_b, char set);
+void	push(t_stack **stack_a, t_stack **stack_b, char set);
+void	rotate(t_stack **stack_a, t_stack **stack_b, char set);
+void	reverse_rotate(t_stack **stack_a, t_stack **stack_b, char set);
 
 /*--- erro.c ---*/
 void	free_stack(t_stack **stack);
 void	error(t_stack **stack);
+void    free_matrix(char **str);
 
 /*--- verify_stack.c ---*/
 int		verify_duplicate(t_stack *stack_a, int nbr);
