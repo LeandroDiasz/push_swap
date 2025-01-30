@@ -15,7 +15,7 @@ SRC = src/main.c \
 	src/sort.c \
 	src/operations.c \
 	src/radix.c \
-	src/utils.c \
+	src/utils.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
