@@ -43,14 +43,19 @@ int	main(int ac, char **av)
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
 	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	else
-		av++;
-	init_stack(&stack_a, av);
-	if (!is_sorted(stack_a))
 	{
-		sort(stack_a, stack_b);
+		av = ft_split(av[1], ' ');
+		init_stack(&stack_a, av);
+		free_matrix(av);
 	}
+	else
+	{
+		av++;
+		init_stack(&stack_a, av);
+	}
+	assigin_index(stack_a);
+	if (!is_sorted(stack_a))
+		sort(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
