@@ -47,7 +47,7 @@ t_stack	*lstlast(t_stack *lst)
 	return (tmp);
 }
 
-void	lstadd_front(t_list **lst, t_list *new)
+void	lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (lst && new)
 	{
@@ -58,6 +58,5 @@ void	lstadd_front(t_list **lst, t_list *new)
 
 void	lstdelone(t_stack *stack)
 {
-	free(stack->content);
 	free(stack);
 }
