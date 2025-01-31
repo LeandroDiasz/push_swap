@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
-void	init_stack(t_stack **a, char **av)
+void	init_stack(t_stack **stack_a,t_stack **stack_b, char **av)
 {
 	int		i;
 	long	nbr;
@@ -22,15 +21,16 @@ void	init_stack(t_stack **a, char **av)
 	while (av[i])
 	{
 		if (!verify_sintax(av[i]))
-			error(a);
+			error(stack_a);
 		nbr = ft_atol(av[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			error(a);
-		if (!verify_duplicate(*a, (int)nbr))
-			error(a);
-		lstadd_back(a, lstnew(nbr));
+			error(stack_a);
+		if (!verify_duplicate(*stack_a, (int)nbr))
+			error(stack_a);
+		lstadd_back(stack_a, lstnew(nbr));
 		i++;
 	}
+	*stack_b = NULL;
 }
 
 int	main(int ac, char **av)
@@ -45,15 +45,11 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
-		init_stack(&stack_a, av);
+		init_stack(&stack_a, &stack_b, av);
 		free_matrix(av);
 	}
 	else
-	{
-		av++;
-		init_stack(&stack_a, av);
-	}
-	assigin_index(stack_a);
+		init_stack(&stack_a, &stack_b, av + 1);
 	if (!is_sorted(stack_a))
 		sort(&stack_a, &stack_b);
 	free_stack(&stack_a);
