@@ -56,13 +56,12 @@ void	node_rotate(t_stack **stack)
 void	node_reverse_rotate(t_stack **stack)
 {
 	t_stack *last;
-	t_stack	*second_last;
+	t_stack *second_last;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return ;
+		return;
 	last = *stack;
-	second_last = NULL;
-	while (last->next != NULL)
+	while (last->next)
 	{
 		second_last = last;
 		last = last->next;
