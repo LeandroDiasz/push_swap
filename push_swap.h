@@ -21,6 +21,7 @@
 
 # include "libft/libft.h"
 # include "libft/ft_printf/ft_printf.h"
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -30,7 +31,7 @@ typedef struct s_stack
 }	t_stack;
 
 /*--- main.c ---*/
-void	init_stack(t_stack **a, char **av);
+void	init_stack(t_stack **stack_a, t_stack **stack_b, char **av);
 
 /*--- stack.c ---*/
 void	lstadd_front(t_stack **lst, t_stack *new);
@@ -49,12 +50,12 @@ void	assigin_index(t_stack *stack);
 /*--- sort.c ---*/
 int		is_sorted(t_stack *stack);
 void	sort(t_stack **stack_a, t_stack **stack_b);
-void	medium_sort(t_stack **stack_a, t_stack **stack_b);
+void	medium_sort(t_stack **stack_a, t_stack **stack_b, int size);
 void	sort_three(t_stack **stack_a);
 void	sort_two(t_stack **stack_a);
 
 /*--- radix.c ---*/
-//void	radix(t_stack *stack_a, t_stack *stack_b);
+void	radix(t_stack *stack_a, t_stack *stack_b);
 
 /*--- operations.c ---*/
 void	swap(t_stack **stack_a, t_stack **stack_b, char set);
