@@ -27,19 +27,20 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int	len;
+	int	size;
 
-	len = lstsize(*stack_a);
-	if (len <= 2)
+	size = lstsize(*stack_a);
+	if (size <= 2)
 		sort_two(stack_a);
-	else if (len <= 3)
+	else if (size <= 3)
 		sort_three(stack_a);
-	else if (len <= 5)
-		medium_sort(stack_a, stack_b);
-	/*else
-		radix(stack_a, stack_b);*/
+	else if (size <= 5)
+		medium_sort(stack_a, stack_b, size);
+	else
+		radix(stack_a, stack_b);
 }
 
 void	sort_two(t_stack **stack_a)
@@ -48,59 +49,57 @@ void	sort_two(t_stack **stack_a)
 		swap(stack_a, NULL, DO_A);
 }
 
-void	sort_three(t_stack **stack_a)
+void	sort_three(t_stack **stack)
 {
 	int	top;
 	int	mid;
 	int	bot;
 
-	top = (*stack_a)->index;
-	mid = (*stack_a)->next->index;
-	bot = (*stack_a)->next->next->index;
-
+	assigin_index (*stack);
+	top = (*stack)->index;
+	mid = (*stack)->next->index;
+	bot = (*stack)->next->next->index;
 	if (top == 0 && mid == 2 && bot == 1)
 	{
-		reverse_rotate(stack_a, NULL, DO_A);
-		swap(stack_a, NULL, DO_A);
+		reverse_rotate(stack, NULL, DO_A);
+		swap(stack, NULL, DO_A);
 	}
 	else if (top == 1 && mid == 0 && bot == 2)
-		swap(stack_a, NULL, DO_A);
+		swap(stack, NULL, DO_A);
 	else if (top == 1 && mid == 2 && bot == 0)
-		reverse_rotate(stack_a, NULL, DO_A);
+		reverse_rotate(stack, NULL, DO_A);
 	else if (top == 2 && mid == 0 && bot == 1)
-		rotate(stack_a, NULL, DO_A);
-	else if(top == 2 && mid == 1 && bot == 0)
+		rotate(stack, NULL, DO_A);
+	else if (top == 2 && mid == 1 && bot == 0)
 	{
-		swap(stack_a, NULL, DO_A);
-		reverse_rotate(stack_a, NULL, DO_A);
+		swap(stack, NULL, DO_A);
+		reverse_rotate(stack, NULL, DO_A);
 	}
 }
 
-void	medium_sort(t_stack **stack_a, t_stack **stack_b)
+void	medium_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	int		max_value;
-	int		i;
+	int		min_value;
 	t_stack	*current;
 
-	i = 0;
-	while (i < 2)
+	assigin_index (*stack_a);
+	while (lstsize(*stack_a) > 3)
 	{
 		current = *stack_a;
-		max_value = (*stack_a)->index;
+		min_value = (*stack_a)->index;
 		while (current)
 		{
-			if (current->index > max_value)
-				max_value = current->index;
+			if (current->index < min_value)
+				min_value = current->index;
 			current = current->next;
 		}
-		while (*stack_a && (*stack_a)->index != max_value)
+		if (lstlast(*stack_a)->index == min_value)
+			reverse_rotate(stack_a, NULL, DO_A);
+		while (*stack_a && (*stack_a)->index != min_value)
 			rotate(stack_a, NULL, DO_A);
 		push(stack_a, stack_b, DO_B);
-		i++;
 	}
-	if (*stack_a)
-		sort_three(stack_a);
-	while (i--)
-		push(stack_b, stack_a, DO_A);
+	sort_three(stack_a);
+	while (lstsize(*stack_a) != size)
+		push(stack_a, stack_b, DO_A);
 }
-
