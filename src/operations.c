@@ -33,19 +33,30 @@ void	swap(t_stack **stack_a, t_stack **stack_b, char set)
 }
 void	push(t_stack **stack_a, t_stack **stack_b, char set)
 {
+	t_stack *tmp;
+
 	if (set == DO_A)
 	{
-		lstadd_front(stack_a, *stack_b);
-		lstdelone(*stack_b);
+		if (!*stack_b)
+			return ;
+		tmp = *stack_b;
+		*stack_b = (*stack_b)->next;
+		tmp->next = *stack_a;
+		*stack_a = tmp;
 		ft_putstr("pa\n");
 	}
 	else if (set == DO_B)
 	{
-		lstadd_front(stack_b, *stack_a);
-		lstdelone(*stack_a);
+		if (!*stack_a)
+			return ;
+		tmp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		tmp->next = *stack_b;
+		*stack_b = tmp;
 		ft_putstr("pb\n");
 	}
 }
+
 
 void	rotate(t_stack **stack_a, t_stack **stack_b, char set)
 {
