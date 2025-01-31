@@ -23,6 +23,7 @@ void	lstadd_back(t_stack **lst, t_stack *new)
 		*lst = new;
 	else
 		tmp->next = new;
+	new->next = NULL;
 }
 t_stack	*lstnew(int content)
 {
@@ -58,5 +59,6 @@ void	lstadd_front(t_stack **lst, t_stack *new)
 
 void	lstdelone(t_stack *stack)
 {
-	free(stack);
+	if (stack)
+		free(stack);
 }
