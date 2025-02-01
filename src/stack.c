@@ -25,6 +25,7 @@ void	lstadd_back(t_stack **lst, t_stack *new)
 		tmp->next = new;
 	new->next = NULL;
 }
+
 t_stack	*lstnew(int content)
 {
 	t_stack	*elem;
@@ -36,6 +37,7 @@ t_stack	*lstnew(int content)
 	elem->next = NULL;
 	return (elem);
 }
+
 t_stack	*lstlast(t_stack *lst)
 {
 	t_stack	*tmp;

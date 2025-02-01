@@ -55,7 +55,7 @@ void	sort_three(t_stack **stack)
 	int	mid;
 	int	bot;
 
-	assigin_index (*stack);
+	assigin_index(*stack);
 	top = (*stack)->index;
 	mid = (*stack)->next->index;
 	bot = (*stack)->next->next->index;
@@ -82,7 +82,7 @@ void	medium_sort(t_stack **stack_a, t_stack **stack_b, int size)
 	int		min_value;
 	t_stack	*current;
 
-	assigin_index (*stack_a);
+	assigin_index(*stack_a);
 	while (lstsize(*stack_a) > 3)
 	{
 		current = *stack_a;

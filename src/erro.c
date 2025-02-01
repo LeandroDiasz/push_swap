@@ -19,9 +19,10 @@ void	error(t_stack **stack)
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
+
 void	free_stack(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!stack)
 		return ;
@@ -34,12 +35,12 @@ void	free_stack(t_stack **stack)
 	}
 }
 
-void    free_matrix(char **str)
+void	free_matrix(char **str)
 {
-    int	i;
-	
+	int	i;
+
 	i = 0;
-    while (str[i])
-        free(str[i++]);
-    free(str);
+	while (str[i])
+		free(str[i++]);
+	free(str);
 }

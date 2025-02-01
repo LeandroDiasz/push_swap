@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	init_stack(t_stack **stack_a,t_stack **stack_b, char **av)
+void	init_stack(t_stack **stack_a, t_stack **stack_b, char **av)
 {
 	int		i;
 	long	nbr;
@@ -35,8 +35,8 @@ void	init_stack(t_stack **stack_a,t_stack **stack_b, char **av)
 
 int	main(int ac, char **av)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;

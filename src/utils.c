@@ -29,11 +29,11 @@ int	lstsize(t_stack *lst)
 
 void	node_swap(t_stack **stack)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (!stack || !*stack || !(*stack)->next)
-			return ;
+		return ;
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
@@ -43,7 +43,7 @@ void	node_swap(t_stack **stack)
 
 void	node_rotate(t_stack **stack)
 {
-	t_stack *first;
+	t_stack	*first;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -55,11 +55,11 @@ void	node_rotate(t_stack **stack)
 
 void	node_reverse_rotate(t_stack **stack)
 {
-	t_stack *last;
-	t_stack *second_last;
+	t_stack	*last;
+	t_stack	*second_last;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return;
+		return ;
 	last = *stack;
 	while (last->next)
 	{
@@ -71,7 +71,7 @@ void	node_reverse_rotate(t_stack **stack)
 	*stack = last;
 }
 
-void	assigin_index(t_stack *stack) 
+void	assigin_index(t_stack *stack)
 {
 	t_stack	*current;
 	t_stack	*iterator;
@@ -84,11 +84,11 @@ void	assigin_index(t_stack *stack)
 		index = 0;
 		while (iterator)
 		{
-			if(current->content > iterator->content)
+			if (current->content > iterator->content)
 				index++;
 			iterator = iterator->next;
 		}
-		current->index= index;
+		current->index = index;
 		current = current->next;
 	}
 }

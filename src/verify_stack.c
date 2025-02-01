@@ -22,8 +22,8 @@ int	verify_sintax(char *av)
 	if (!ft_isdigit(av[i]))
 		return (0);
 	while (av[i])
-	{	
-		if(!ft_isdigit(av[i]))
+	{
+		if (!ft_isdigit(av[i]))
 			return (0);
 		i++;
 	}
@@ -39,8 +39,8 @@ long	ft_atol(const char *str)
 	result = 0;
 	i = 0;
 	imp = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '+' && str[i + 1] != '-')
 		i++;
@@ -59,7 +59,8 @@ long	ft_atol(const char *str)
 
 int	verify_duplicate(t_stack *stack_a, int nbr)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
+
 	if (!stack_a)
 		return (1);
 	tmp = stack_a;
@@ -70,5 +71,4 @@ int	verify_duplicate(t_stack *stack_a, int nbr)
 		tmp = tmp->next;
 	}
 	return (1);
-	
 }

@@ -31,9 +31,10 @@ void	swap(t_stack **stack_a, t_stack **stack_b, char set)
 		ft_putstr("ss\n");
 	}
 }
+
 void	push(t_stack **stack_a, t_stack **stack_b, char set)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (set == DO_A)
 	{
@@ -57,7 +58,6 @@ void	push(t_stack **stack_a, t_stack **stack_b, char set)
 	}
 }
 
-
 void	rotate(t_stack **stack_a, t_stack **stack_b, char set)
 {
 	if (set == DO_A)
@@ -73,7 +73,7 @@ void	rotate(t_stack **stack_a, t_stack **stack_b, char set)
 	else if (set == DO_ALL)
 	{
 		node_rotate(stack_a);
-		node_rotate(stack_b);		
+		node_rotate(stack_b);
 		ft_putstr("rr\n");
 	}
 }
