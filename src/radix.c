@@ -21,7 +21,7 @@ void	radix(t_stack **stack_a, t_stack **stack_b, int size)
 	i = 0;
 	max_bits = 0;
 	assigin_index(*stack_a);
-	while((size - 1) >> max_bits != 0)
+	while ((size - 1) >> max_bits != 0)
 		max_bits++;
 	while (i < max_bits)
 	{
