@@ -40,7 +40,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	else if (size <= 5)
 		medium_sort(stack_a, stack_b, size);
 	else
-		radix(stack_a, stack_b);
+		radix(stack_a, stack_b, size);
 }
 
 void	sort_two(t_stack **stack_a)
