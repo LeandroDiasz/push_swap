@@ -50,6 +50,8 @@ int	main(int ac, char **av)
 	}
 	else
 		init_stack(&stack_a, &stack_b, av + 1);
+	if (!stack_a)
+		error(NULL);
 	if (!is_sorted(stack_a))
 		sort(&stack_a, &stack_b);
 	free_stack(&stack_a);
